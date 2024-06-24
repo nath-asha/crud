@@ -1,5 +1,22 @@
+/* App.css */
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #1e3c72, #2a5298); /* Gradient background */
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
 .App {
   text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .movie-list {
@@ -11,10 +28,12 @@
 }
 
 .card {
-  border: 1px solid #ccc;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 1rem;
   width: 200px;
-  background-color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s, box-shadow 0.2s;
   animation: slideIn 0.5s ease-in-out;
@@ -33,12 +52,35 @@ form {
 form input, form button {
   margin: 0.5rem;
   padding: 0.5rem;
-  border: 1px solid #ccc;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 4px;
-  transition: border-color 0.2s;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  transition: border-color 0.2s, background 0.2s;
 }
 
 form input:focus, form button:focus {
+  border-color: #007bff;
+  background: rgba(255, 255, 255, 0.2);
+  outline: none;
+}
+
+input[type="text"] {
+  width: 300px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  padding: 10px 20px;
+  color: #fff;
+  transition: background 0.3s, border 0.3s;
+}
+
+input[type="text"]::placeholder {
+  color: #ddd;
+}
+
+input[type="text"]:focus {
+  background: rgba(255, 255, 255, 0.3);
   border-color: #007bff;
   outline: none;
 }

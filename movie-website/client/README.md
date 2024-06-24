@@ -68,3 +68,27 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+<!-- db.<collection_name>.insertMany([
+  {
+    "title": "Sairat",
+    "genre": "Romance",
+    "releaseYear": 2016
+  },
+  {
+    "title": "Andhadhun",
+    "genre": "Crime Thriller",
+    "releaseYear": 2018
+  },
+  {
+    "genre": "Comedy",
+    "title": "Munna Bhai M.B.B.S",
+    "releaseYear": 2003
+  },
+  {
+    "title": "Vikram",
+    "genre": "Action Thriller",
+    "releaseYear": 2022
+  },
+  // ... (similar entries for remaining movies)
+]) -->
