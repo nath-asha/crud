@@ -7,18 +7,69 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .card {
   border: 1px solid #ccc;
   padding: 1rem;
   width: 200px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  animation: slideIn 0.5s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 form {
   margin-bottom: 1rem;
+  animation: fadeInUp 0.5s ease-in-out;
 }
 
 form input, form button {
   margin: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.2s;
+}
+
+form input:focus, form button:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+      transform: translateY(20px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+      transform: translateY(10px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
 }
