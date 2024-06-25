@@ -72,12 +72,24 @@ async function getMovie(req, res, next) {
 
 // Delete a movie
 router.delete('/:id', getMovie, async (req, res) => {
-    try {
-        await res.movie.remove();
-        res.json({ message: 'Deleted Movie' });
-    } catch (err) {
-        res.status(500).json({ message: err.message });
+//     try {
+//         await res.movie.remove();
+//         res.json({ message: 'Deleted Movie' });
+//     } catch (err) {
+//         res.status(500).json({ message: err.message });
+//     }
+// });
+try {
+    const movie = await Movie.findById(req.params.id);
+    if (!movie) {
+        return res.status(404).json({ message: 'Cannot find movie' });
     }
+    await Movie.deleteOne({ _id: req.params.id });
+    res.json({ message: 'Deleted Movie' });
+} catch (err) {
+    console.error('Error deleting movie:', err); // Log error
+    res.status(500).json({ message: err.message });
+}
 });
 
 module.exports = router;
