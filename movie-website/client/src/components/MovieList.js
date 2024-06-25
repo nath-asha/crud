@@ -17,11 +17,19 @@ const MovieList = () => {
         setMovies(response.data);
     };
 
+    // const handleDelete = async (id) => {
+    //     await axios.delete(`http://localhost:5000/api/movies/${id}`);
+    //     fetchMovies();
+    // };
     const handleDelete = async (id) => {
-        await axios.delete(`http://localhost:5000/api/movies/${id}`);
-        fetchMovies();
+        try {
+            await axios.delete(`http://localhost:5000/api/movies/${id}`);
+            setMovies(movies.filter(movie => movie._id !== id));
+        } catch (err) {
+            console.error('Error deleting movie:', err); // Log the error
+        }
     };
-
+    
     const handleEdit = (movie) => {
         setCurrentMovie(movie);
     };

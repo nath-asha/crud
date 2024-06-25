@@ -54,16 +54,6 @@ router.put('/:id', getMovie, async (req, res) => {
     }
 });
 
-// Delete a movie
-router.delete('/:id', getMovie, async (req, res) => {
-    try {
-        await res.movie.remove();
-        res.json({ message: 'Deleted Movie' });
-    } catch (err) {
-        res.status(500).json({ message: err.message });
-    }
-});
-
 // Middleware to get movie by ID
 async function getMovie(req, res, next) {
     let movie;
@@ -79,5 +69,15 @@ async function getMovie(req, res, next) {
     res.movie = movie;
     next();
 }
+
+// Delete a movie
+router.delete('/:id', getMovie, async (req, res) => {
+    try {
+        await res.movie.remove();
+        res.json({ message: 'Deleted Movie' });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
 
 module.exports = router;
