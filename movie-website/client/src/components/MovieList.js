@@ -6,6 +6,7 @@ import MovieForm from './MovieForm';
 const MovieList = () => {
     const [movies, setMovies] = useState([]);
     const [search, setSearch] = useState('');
+    const [currentMovie, setCurrentMovie] = useState(null);
 
     useEffect(() => {
         fetchMovies();
@@ -21,8 +22,13 @@ const MovieList = () => {
         fetchMovies();
     };
 
-    const handleEdit = async (updatedMovie) => {
+    const handleEdit = (movie) => {
+        setCurrentMovie(movie);
+    };
+
+    const handleUpdate = async (updatedMovie) => {
         await axios.put(`http://localhost:5000/api/movies/${updatedMovie._id}`, updatedMovie);
+        setCurrentMovie(null);
         fetchMovies();
     };
 
@@ -43,8 +49,13 @@ const MovieList = () => {
                 placeholder="Search..." 
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
+                className="search-input"
             />
-            <MovieForm onAdd={handleAdd} />
+            <MovieForm 
+                onAdd={handleAdd} 
+                currentMovie={currentMovie} 
+                onEdit={handleUpdate} 
+            />
             <div className="movie-list">
                 {filteredMovies.map(movie => (
                     <MovieCard 

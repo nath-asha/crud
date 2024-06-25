@@ -1,9 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const MovieForm = ({ onAdd, currentMovie, onEdit }) => {
-    const [title, setTitle] = useState(currentMovie ? currentMovie.title : '');
-    const [genre, setGenre] = useState(currentMovie ? currentMovie.genre : '');
-    const [releaseYear, setReleaseYear] = useState(currentMovie ? currentMovie.releaseYear : '');
+    const [title, setTitle] = useState('');
+    const [genre, setGenre] = useState('');
+    const [releaseYear, setReleaseYear] = useState('');
+
+    useEffect(() => {
+        if (currentMovie) {
+            setTitle(currentMovie.title);
+            setGenre(currentMovie.genre);
+            setReleaseYear(currentMovie.releaseYear);
+        } else {
+            setTitle('');
+            setGenre('');
+            setReleaseYear('');
+        }
+    }, [currentMovie]);
 
     const handleSubmit = (e) => {
         e.preventDefault();

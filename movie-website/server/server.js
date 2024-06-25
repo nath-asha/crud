@@ -15,7 +15,9 @@ mongoose.connect('mongodb+srv://nathashais21:Rm3KeYDcBaXIpeFL@mov.sa8whmg.mongod
 .catch(err => console.log(err));
 
 // Define routes
-app.use('/api/movies', require('./routes/movies'));
+// app.use('/api/movies', require('./routes/movies'));
+const moviesRouter = require('./routes/movies');
+app.use('/api/movies', moviesRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
