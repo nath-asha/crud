@@ -1,6 +1,3 @@
-Here is the README content formatted in Markdown:
-
-```markdown
 # Movie Catalogue CRUD Application
 
 This project is a simple web application that allows users to manage a movie catalog by performing CRUD (Create, Read, Update, Delete) operations. The application is built using ReactJS for the frontend and NodeJS with ExpressJS for the backend.Database used is MongoDb.
